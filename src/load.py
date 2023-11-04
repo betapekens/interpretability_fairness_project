@@ -5,5 +5,5 @@ def load(path):
     Load data from a CSV file and return it as a DataFrame.
     """
     print("Loading data ...")
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, index_col=0)
     return df
