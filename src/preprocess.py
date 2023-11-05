@@ -58,8 +58,27 @@ def impute(df, nan_vals="?"):
     return df.replace(nan_vals, np.nan)
 
 
+def preprocess_text(df, text_cols=None):
+    if text_cols is None:
+        text_cols = ["ethnicity", "country_of_res"]
+    for col in text_cols:
+        df[col] = df[col].str.lower().str.strip()
+        df[col] = df[col].str.replace(" ", "_")
+    return df
+
+
 def feature_engineering(df):
-    pass
+    df["sum_scores"] = df.filter(regex="_Score").sum(axis=1)
+    return df
+
+
+def replace_infreq_vals(df, columns=None, threshold=10):
+    if columns is None:
+        columns = ["country_of_res", "ethnicity"]
+    for colname in columns:
+        category_counts = df[colname].value_counts()
+        infrequent_categories = category_counts[category_counts < threshold].index
+        df[colname] = df[colname].apply(lambda x: 'other' if x in infrequent_categories else x)
     return df
 
 
@@ -69,11 +88,12 @@ def preprocess(df):
         "contry_of_res": "country_of_res",
     }
     df.rename(rename_mapping, axis=1, inplace=True)
+    df = preprocess_text(df)
+    df = replace_infreq_vals(df)
+    df = impute(df)
     df = label_encoder(df)
     df = onehot_encode(df)
     # df = scale(df)
-    df = impute(df)
-
     X = df.drop("Class/ASD", axis=1).copy()
     y = df["Class/ASD"]
     return X, y
