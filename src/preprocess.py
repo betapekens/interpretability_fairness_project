@@ -16,7 +16,7 @@ def label_encoder(df, cat_cols = None):
     """
     print("Encoding variables ...")
     if cat_cols is None:
-        cat_cols = ["gender", "jaundice", "autism", "used_app_before", "age_desc"]
+        cat_cols = ["jaundice", "autism", "used_app_before", "age_desc"]
     for c in cat_cols:
         encoder = LabelEncoder()
         df[c] = encoder.fit_transform(df[c])
@@ -27,7 +27,7 @@ def onehot_encode(
     df: pd.DataFrame, categorical_cols: List[str] = None
 ) -> pd.DataFrame:
     if categorical_cols is None:
-        categorical_cols = ["country_of_res", "ethnicity", "relation"]
+        categorical_cols = ["country_of_res", "ethnicity", "relation", "gender"]
     dicts = df[categorical_cols].to_dict(orient="records")
     dv = DictVectorizer()
     categorical_df = dv.fit_transform(dicts)
@@ -93,6 +93,7 @@ def preprocess(df):
     df = impute(df)
     df = label_encoder(df)
     df = onehot_encode(df)
+    df = feature_engineering(df)
     # df = scale(df)
     X = df.drop("Class/ASD", axis=1).copy()
     y = df["Class/ASD"]

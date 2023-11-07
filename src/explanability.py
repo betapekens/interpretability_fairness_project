@@ -34,7 +34,7 @@ def dependence_plot(feature_name:str, interaction_feature_name:str=None, **kwarg
     """
     feature_idx = np.where(X.columns == feature_name)[0][0]
     if interaction_feature_name:
-        interaction_feature_idx = np.where(model.feature_names_in_ == interaction_feature_name)[0][0]
+        interaction_feature_idx = np.where(X.columns == interaction_feature_name)[0][0]
         shap.dependence_plot(
             feature_idx,
             shap_values,
