@@ -41,6 +41,7 @@ def main_cli(args):
         save_model(model, "models/xgb.pkl")
     save_model(model, args.model_path)
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Machine Learning Pipeline")
 
