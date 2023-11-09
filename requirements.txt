@@ -1,11 +1,10 @@
-pandas
+pandas==1.5.3
 numpy
 seaborn
 scikit-learn
-xgboost
+xgboost==1.5.2
 shap
 lime
-pickle
-alepython
+git+https://github.com/blent-ai/ALEPython
 imblearn
 XPER
