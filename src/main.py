@@ -1,14 +1,15 @@
 import os
-from src.load import load
-from src.preprocess import preprocess
-from src.train import train, cross_validation, save_model
+from load import load
+from preprocess import preprocess
+from train import train, cross_validation, save_model
 import warnings
 import argparse
+import pandas as pd
 
 warnings.filterwarnings("ignore")
 
 
-def main(model_path="models/xgb.pkl", data_path="data/train.csv", val_split:bool=False, **model_params):
+def main(model_path="../models/xgb.pkl", data_path="../data/train.csv", val_split:bool=False, **model_params):
     df = load(data_path)
     X, y = preprocess(df)
     if not model_params:
@@ -22,13 +23,15 @@ def main(model_path="models/xgb.pkl", data_path="data/train.csv", val_split:bool
     save_model(model, model_path)
 
 
-"""if __name__ == "__main__":
-    main()"""
 
 
 def main_cli(args):
     df = load(args.data_path)
     X, y = preprocess(df)
+
+    combined_df = pd.concat([X, y], axis=1)
+    combined_df.to_csv("../data/preprocessed.csv", index=False)
+
     model_params = {
         "max_depth":5, "tree_method":"hist", "device":"cuda",
         "objective":"binary:logistic","eval_metric":"auc",
