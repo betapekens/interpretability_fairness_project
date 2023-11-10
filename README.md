@@ -12,10 +12,44 @@ This project, part of the HEC Paris MSc Data Science for Business 2023-2024 curr
   - A file used by macOS to store custom attributes of a folder.
 - `.gitignore`
   - Specifies untracked files that Git should ignore.
+- `Data`
+  - TAll the data files used during the project
+- `Models`
+  - Trained Models
+- `Notebooks`
+  - Step by step execution of the project
+- `Plots`
+  - Interpretable plots
+- `src`
+  - All source files needed to run the project
 - `README.md`
   - This file, providing an overview and instructions for the project.
+  
 
-## Installation and Setup
+@Rehann2
+Rehann2 Update README.md
+dac93c3
+now
+Git stats
+ 36 commits
+Files
+Type
+Name
+Latest commit message
+Commit time
+data
+preprocessed data export
+3 days ago
+models
+Added feature engineering function with a new feature
+2 days ago
+notebooks
+Fairness Tests - Step 8
+11 minutes ago
+plots
+Merge pull request #3 from betapekens/1-step-9-implement-a-fpdp-using…
+9 hours ago
+src
 
 ## Installation and Setup
 
