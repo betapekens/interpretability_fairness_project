@@ -1,5 +1,3 @@
-# interpretability_fairness_project
-
 # Interpretability and Fairness in Autism Detection Models
 
 ## Project Overview
