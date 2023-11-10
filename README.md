@@ -26,31 +26,6 @@ This project, part of the HEC Paris MSc Data Science for Business 2023-2024 curr
   - This file, providing an overview and instructions for the project.
   
 
-@Rehann2
-Rehann2 Update README.md
-dac93c3
-now
-Git stats
- 36 commits
-Files
-Type
-Name
-Latest commit message
-Commit time
-data
-preprocessed data export
-3 days ago
-models
-Added feature engineering function with a new feature
-2 days ago
-notebooks
-Fairness Tests - Step 8
-11 minutes ago
-plots
-Merge pull request #3 from betapekens/1-step-9-implement-a-fpdp-using…
-9 hours ago
-src
-
 ## Installation and Setup
 
 Follow these steps to set up and run the project:
