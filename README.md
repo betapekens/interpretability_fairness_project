@@ -30,9 +30,18 @@ First, clone the repository to your local machine using Git:
 ```bash
 git clone https://github.com/betapekens/interpretability_fairness_project.git
 cd interpretability_fairness_project
+```
+Installing Dependencies
+Ensure you have Python installed on your system. Then, install the required dependencies:
+```bash
 pip install -r requirements.txt
+```
+Running the Model
+Navigate to the src directory and run the main.py file to execute the model:
+```bash
 cd src
 python main.py
+```
 
 ## Contributors
 Amjad Rehan Ibrahim, Zosia Smolen, Diken Celaj , Steve Moses, Kaan Caylan
